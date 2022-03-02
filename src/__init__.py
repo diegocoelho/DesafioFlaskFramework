@@ -5,6 +5,9 @@ from src.api import api
 from src.errors import errors
 from src.database import db
 from flask_jwt_extended import JWTManager
+from src.custom_logger import LogHandler
+from flask.logging import default_handler
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -30,5 +33,7 @@ def create_app(test_config=None):
     app.register_blueprint(auth)
     app.register_blueprint(api)
     app.register_blueprint(errors)
+    app.logger.removeHandler(default_handler)
+    app.logger.addHandler(LogHandler())
 
     return app
