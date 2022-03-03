@@ -14,7 +14,12 @@ def register():
     username = request.json['username']
     password = request.json['password']
     if User.query.filter_by(username=username).first() is not None:
-        return jsonify({'error': 'username is already taken'}), HTTP_400_BAD_REQUEST
+        output = {
+            'error': {
+                'reason': 'username is already taken'
+            }
+        }
+        return jsonify(output), HTTP_400_BAD_REQUEST
 
     password_hash = generate_password_hash(password)
     user = User(username=username, password=password_hash)
@@ -43,4 +48,9 @@ def login():
                 }
             }
             return jsonify(output), HTTP_200_OK
-    return jsonify({'error': 'wrong credentials'}), HTTP_401_UNAUTHORIZED
+    output = {
+        'error': {
+            'reason': 'wrong credentials'
+        }
+    }
+    return jsonify(output), HTTP_401_UNAUTHORIZED
