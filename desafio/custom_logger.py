@@ -1,6 +1,5 @@
 import logging
 import logging.handlers
-from flask import has_request_context, request
 
 
 class LogHandler(logging.StreamHandler):
@@ -10,3 +9,4 @@ class LogHandler(logging.StreamHandler):
         fmt_date = '%d/%m/%Y %T'
         formatter = logging.Formatter(fmt, fmt_date)
         self.setFormatter(formatter)
+        self.setLevel(logging.DEBUG)

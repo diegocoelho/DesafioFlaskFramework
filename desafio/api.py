@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 import requests
 from flask_jwt_extended import jwt_required
-from src.constants.http_codes import HTTP_200_OK
+from desafio.constants.http_codes import HTTP_200_OK
 from logging import getLogger
 
 DATA_URL = 'https://jsonplaceholder.typicode.com/todos'
