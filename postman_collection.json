@@ -1,0 +1,130 @@
+{
+	"variables": [],
+	"info": {
+		"name": "desafio framework - diego coelho",
+		"_postman_id": "24767c10-f1d5-7e02-a0fb-1266d00cf2cb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registering user successfully - 200",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"postmanuser\",\n\t\"password\": \"password\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "username taken error - 400",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"postmanuser\",\n\t\"password\": \"password\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "successful login - 200",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"postmanuser\",\n\t\"password\": \"password\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "wrong credentials - 401",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"postmanuser\",\n\t\"password\": \"wrongpassword\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "dummy endpoint - 200",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "first_five endpoint - 200",
+			"request": {
+				"url": "http://127.0.0.1:5000/api/first_five",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <insert_token_here>",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "remember to replace <insert_token_here> with the actual token from login"
+			},
+			"response": []
+		},
+		{
+			"name": "random endpoint - 404",
+			"request": {
+				"url": "http://127.0.0.1:5000/random_endpoint",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
