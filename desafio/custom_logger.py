@@ -19,6 +19,6 @@ def log(func):
     def generate_log(*args, **kwargs):
         logger = getLogger(__name__)
         output = func(*args, **kwargs)
-        logger.info('/{}\t{}\t{}'.format(func.__name__, output[1], output[0].get_json()))
+        logger.info('{}\t{}\t{}'.format(func.__name__, output[1], output[0].get_json()))
         return output
     return generate_log
