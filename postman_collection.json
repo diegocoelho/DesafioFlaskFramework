@@ -99,9 +99,9 @@
 			"response": []
 		},
 		{
-			"name": "first_five endpoint - 200",
+			"name": "fist five records - 200",
 			"request": {
-				"url": "http://127.0.0.1:5000/api/first_five",
+				"url": "http://127.0.0.1:5000/api/records",
 				"method": "GET",
 				"header": [
 					{
@@ -121,6 +121,52 @@
 				"url": "http://127.0.0.1:5000/random_endpoint",
 				"method": "GET",
 				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "pagination page=5 limit=10  200",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/records?page=5&limit=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"records"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <insert_token_here>",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},

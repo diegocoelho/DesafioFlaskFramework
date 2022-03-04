@@ -19,13 +19,18 @@ After that, the app should be running at http://127.0.0.1:5000/
 # API endpoints
 
 ## GET
-[/api/first_five](#get-apifirst_five) <br/>
+[/api/records](#get-apirecords) <br/>
 ## POST
 [/auth/register](#post-authregister) <br/>
 [/auth/login](#post-authlogin) <br/>
 
-## GET /api/first_five
+## GET /api/records
 Get first five results from https://jsonplaceholder.typicode.com/todos
+
+It is possible to retrieve other records using pagination:
+
+    /api/records?page=1&limit=5
+
 
 **Headers**
 
@@ -106,7 +111,7 @@ Get first five results from https://jsonplaceholder.typicode.com/todos
 }
 ```
 
-### Testing
+# Testing
 
 Tests were written using pytest. To test the application, simply run:
 

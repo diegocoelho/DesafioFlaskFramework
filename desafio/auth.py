@@ -2,7 +2,8 @@ from flask import Blueprint, request, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 from desafio.constants.http_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED
 from desafio.errors import error_output
-from desafio.database import User, db
+from desafio.database import db
+from desafio.models.user import User
 from flask_jwt_extended import create_access_token
 from desafio.custom_logger import log
 
