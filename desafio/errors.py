@@ -30,3 +30,13 @@ def error_500(error):
         'reason': 'something went wrong, please try again'
     }}
     return jsonify(output), HTTP_500_INTERNAL_SERVER_ERROR
+
+
+def error_output(code, reason):
+    output = {
+        'error': {
+            'reason': reason
+        }
+    }
+    return jsonify(output), code
+

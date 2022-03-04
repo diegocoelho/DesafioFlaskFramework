@@ -12,7 +12,7 @@ The second way is to manually install dependencies and run from run.py:
 pip install -r requirements.txt
 python run.py #or flask run
 ```
-**Note: If you prefer the second option, it's highly recommended to use python virtual enviroments.**
+**Note: If you prefer the second option, it's highly recommended to use python virtual environments.**
 
 After that, the app should be running at http://127.0.0.1:5000/
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 from desafio.constants.http_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED
+from desafio.errors import error_output
 from desafio.database import User, db
 from flask_jwt_extended import create_access_token
 from desafio.custom_logger import log
@@ -14,12 +15,7 @@ def register():
     username = request.json['username']
     password = request.json['password']
     if User.query.filter_by(username=username).first() is not None:
-        output = {
-            'error': {
-                'reason': 'username is already taken'
-            }
-        }
-        return jsonify(output), HTTP_400_BAD_REQUEST
+        return error_output(code=HTTP_400_BAD_REQUEST, reason='username is already taken')
 
     password_hash = generate_password_hash(password)
     user = User(username=username, password=password_hash)
@@ -48,9 +44,5 @@ def login():
                 }
             }
             return jsonify(output), HTTP_200_OK
-    output = {
-        'error': {
-            'reason': 'wrong credentials'
-        }
-    }
-    return jsonify(output), HTTP_401_UNAUTHORIZED
+
+    return error_output(code=HTTP_401_UNAUTHORIZED, reason='wrong credentials')

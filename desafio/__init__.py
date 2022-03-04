@@ -1,6 +1,5 @@
 from flask import Flask
 import os
-
 from desafio.auth import auth
 from desafio.api import api
 from desafio.errors import errors
