@@ -105,3 +105,9 @@ Get first five results from https://jsonplaceholder.typicode.com/todos
     }
 }
 ```
+
+### Testing
+
+Tests were written using pytest. To test the application, simply run:
+
+    pytest
