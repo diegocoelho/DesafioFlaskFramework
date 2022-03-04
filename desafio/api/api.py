@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 import requests
 from flask_jwt_extended import jwt_required
 from desafio.constants.http_codes import HTTP_200_OK
-from desafio.custom_logger import log
+from desafio.util.custom_logger import log
 
 DATA_URL = 'https://jsonplaceholder.typicode.com/todos'
 ITEMS_PER_PAGE = 5

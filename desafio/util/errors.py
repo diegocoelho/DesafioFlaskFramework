@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from desafio.constants.http_codes import HTTP_401_UNAUTHORIZED, HTTP_404_NOT_FOUND, HTTP_500_INTERNAL_SERVER_ERROR
-from desafio.custom_logger import log
+from desafio.util.custom_logger import log
 
 errors = Blueprint('errors', __name__)
 
